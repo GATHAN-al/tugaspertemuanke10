@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lifestyle Theme</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+     <!-- Swiper CSS -->
+     <link
+     rel="stylesheet"
+     href="https://unpkg.com/swiper/swiper-bundle.min.css"
+   />
+   <link
+   href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+   rel="stylesheet"
+ />
+    <style>
+/* Efek hover yang diinginkan */
+.hover-effect img {
+  transition: transform 0.3s ease;
+}
+
+.hover-effect.scrolled img:hover {
+  transform: scale(1.05); /* Perbesar sedikit gambar saat di-hover */
+}
+
+
+
+
+
+       /* Swiper custom styling */
+       .swiper-container {
+        width: 100%;
+        height: 300px; /* Adjust slider height */
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* Neutral color for navigation arrows */
+      .swiper-button-next, .swiper-button-prev {
+        color: #333; /* Neutral dark gray for arrows */
+      }
+
+      /* Hide the pagination dots */
+      .swiper-pagination {
+        display: none;
+      }
+      /* Dark mode styles */
+      body.dark-theme {
+        background-color: #16161a;
+        color: #ffffff;
+      }
+
+      nav {
+        background-color: #16161a;
+      }
+
+      body.dark-theme nav {
+        background-color: #1f1f1f;
+      }
+
+      /* Ensure link color does not turn purple in dark mode */
+      a {
+        color: #007bff; /* Default link color */
+      }
+
+      body.dark-theme a {
+        color: #007bff; /* Keep link color same in dark mode */
+      }
+
+      footer {
+        background-color: #ffffff;
+      }
+
+      body.dark-theme footer {
+        background-color: #1f1f1f;
+      }
+
+      button.theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: inherit;
+        font-size: 1rem;
+      }
+
+      button.theme-toggle:focus {
+        outline: none;
+      }
+        /* Styling for isotope filter buttons */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            list-style: none;
+            padding: 0;
+          }
+    
+          .portfolio-filters li {
+            cursor: pointer;
+            margin-right: 15px;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+          }
+          /* Portfolio item styling */
+.portfolio-item {
+    margin: 25px; /* Adjust this value to increase or decrease the spacing */
+  }
+  
+    
+          .portfolio-filters li:hover,
+          .portfolio-filters .filter-active {
+            background-color: #007bff;
+            color: #fff;
+          }
+    
+         /* Isotope grid item styling */
+.portfolio-content img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    width: 300px; /* Set a specific width */
+    height: 200px; /* Set a specific height */
+    object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
+  }
+  
+    
+          .portfolio-info {
+            text-align: center;
+            margin-top: 10px;
+          }
+
+         .container .content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.container .content-wrapper p {
+  flex: 1;
+}
+
+.container .content-wrapper figure {
+  margin: 0;
+  flex: 1;
+  max-width: 500px; 
+}
+
+.container .content-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+.swiper-container {
+  margin-top: 20px;
+}
+.theme-toggle {
+  border: none;
+  background: none;
+  font-size: 1.2em;
+}
+/* Original styles */
+nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+}
+nav ul li a {
+  text-decoration: none;
+}
+.content-wrapper {
+  margin-top: 20px;
+}
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.container img {
+  border-radius: 10px;
+}
+
+header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #555;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#contact-section {
+  padding: 40px 20px;
+  background-color: #f8f5f2;
+  text-align: center;
+}
+
+#contact-section form {
+  display: inline-block;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#contact-section label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#contact-section input, #contact-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+#contact-section button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-social {
+  margin-bottom: 10px;
+}
+
+.footer-social h3 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-social a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  font-size: 0.9em;
+}
+
+
+          
+          
+    </style>
+  </head>
+  <body>
+    <nav class="container-fluid">
+      <ul>
+        <li><strong>Lifestyle Vibes</strong></li>
+      </ul>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="#about-section">About</a></li>
+        <li><a href="#contact-section">Contact</a></li>
+        <li><a href="#" role="button">Subscribe</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+            🌙 Dark Mode
+          </button>
+        </li>
+      </ul>
+    </nav>
+       <!-- Swiper Slider Section -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1507919909716-c8262e491cde?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wellness lifestyle image from Unsplash" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1610415304248-5fd40f3e2263?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Aesthetic Fashion Trends" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        </div>
+        <!-- Add more slides as needed -->
+      </div>
+     
+    </div>
+
+    <main class="container">
+      <div class="grid">
+        <section>
+          <hgroup>
+            <h2>Welcome to the Tech Lifestyle Hub</h2>
+            <h3>Explore the latest in technology, innovation, and digital living</h3>
+          </hgroup>
+          <div class="content-wrapper">
+            <p>
+              Technology shapes our lives, bringing new ways to connect, work, and live. Whether you're into gadgets, digital trends, or just looking to enhance your everyday tech experience, you've come to the right place.
+            </p>
+            <figure style="overflow: hidden;">
+              <img
+                src="https://images.unsplash.com/photo-1507919909716-c8262e491cde?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Tech lifestyle image from Unsplash"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+              />
+              <figcaption>
+                <a href="https://unsplash.com" target="_blank">Photo from Unsplash</a>
+              </figcaption>
+            </figure>
+          </div>
+    
+          <h3>Latest in Tech Trends</h3>
+          <div class="content-wrapper wellness-section">
+            <figure style="overflow: hidden;">
+              <img
+                src="https://images.unsplash.com/photo-1628258334105-2a0b3d6efee1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Latest Tech Trends"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+              />
+              <figcaption>
+                <a href="https://unsplash.com" target="_blank">Photo from Unsplash</a>
+              </figcaption>
+            </figure>
+            <p>
+              Stay updated with the latest in tech—from AI advancements to the newest gadgets that can transform your digital lifestyle.
+            </p>
+          </div>
+    
+          <h3>Discover Digital Innovation</h3>
+          <div class="content-wrapper">
+            <p>
+              Get insights into emerging digital trends, sustainable tech, and more to stay ahead in the fast-evolving world of technology.
+            </p>
+            <figure style="overflow: hidden;">
+              <img
+                src="https://images.unsplash.com/photo-1721332149274-586f2604884d?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Digital Innovation"
+                style="border-radius: 10px;"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+              />
+              <figcaption>
+                <a href="https://unsplash.com" target="_blank">Photo from Unsplash</a>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+      </div>
+    </main>
+    
+    
+    
+
+    <main class="container">
+        <div class="container">
+          <div
+            class="isotope-layout"
+            data-default-filter="*"
+            data-layout="masonry"
+            data-sort="original-order"
+          >
+            <!-- Portfolio Filters -->
+            <ul
+              class="portfolio-filters isotope-filters"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-app">Innovation</li>
+            <li data-filter=".filter-product">Smart Products</li>
+            <li data-filter=".filter-branding">Digital Branding</li>
+            <li data-filter=".filter-books">Tech Literature</li>
+          </ul>
+    
+  
+            <!-- Portfolio Container -->
+            <div
+              class="row gy-4 isotope-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <!-- Portfolio Items -->
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                <div class="portfolio-content h-100">
+                  <a
+                    href="OIP.jpg"
+                    data-gallery="portfolio-gallery-app"
+                    class="glightbox"
+                    ><img
+                      src="OIP.jpg"
+                      class="img-fluid"
+                      alt="App 1"
+                  /></a>
+                  <div class="portfolio-info">
+                    <h4><a href="portfolio-details.html">Innovation</a></h4>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                <div class="portfolio-content h-100">
+                  <a
+                    href="assets/img/portfolio/product-1.jpg"
+                    data-gallery="portfolio-gallery-app"
+                    class="glightbox"
+                    ><img
+                      src="smart.jpg"
+                      class="img-fluid"
+                      alt="Product 1"
+                  /></a>
+                  <div class="portfolio-info">
+                    <h4><a href="portfolio-details.html">Smart Products</a></h4>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding"
+              >
+                <div class="portfolio-content h-100">
+                  <a
+                    href="assets/img/portfolio/branding-1.jpg"
+                    data-gallery="portfolio-gallery-app"
+                    class="glightbox"
+                    ><img
+                      src="digital.jpg"
+                      class="img-fluid"
+                      alt="Branding 1"
+                  /></a>
+                  <div class="portfolio-info">
+                    <h4><a href="portfolio-details.html">Digital Branding</a></h4>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+                <div class="portfolio-content h-100">
+                  <a
+                    href="assets/img/portfolio/books-1.jpg"
+                    data-gallery="portfolio-gallery-app"
+                    class="glightbox  data-aos="fade-up"
+                    ><img
+                      src="Technical.jpg"
+                      class="img-fluid"
+                      alt="Books 1"
+                  /></a>
+                  <div class="portfolio-info">
+                    <h4><a href="portfolio-details.html">Tech Literature</a></h4>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Add other portfolio items similarly... -->
+            </div>
+          </div>
+        </div>
+       
+        <header>
+          <section id="about-section">
+
+          <h1>About Lifestyle Hub</h1>
+          <p>Your Destination for All Things Tech-Driven in Modern Living</p>
+        </header>
+        
+    
+      <main class="container">
+        <section class="about-content" data-aos="fade-up">
+          <h2>Who We Are</h2>
+          <p>
+            Lifestyle Hub is your go-to source for insights, products, and innovations that are shaping the way we live in a technology-driven world. We focus on blending lifestyle needs with the latest technological advancements to help you live smarter and more connected.
+          </p>
+        </section>
+    
+        <section class="vision" data-aos="fade-up" data-aos-delay="100">
+          <h2>Our Vision</h2>
+          <p>
+            We envision a future where technology seamlessly enhances every aspect of daily life, from smart homes to health and wellness. At Lifestyle Hub, we’re dedicated to showcasing solutions and trends that make this vision a reality.
+          </p>
+        </section>
+    
+        <section class="mission" data-aos="fade-up" data-aos-delay="200">
+          <h2>Our Mission</h2>
+          <p>
+            To empower individuals with knowledge about cutting-edge tech solutions that improve efficiency, well-being, and connectivity. We aim to bridge the gap between technology and lifestyle, offering our audience insights into sustainable, tech-forward living.
+          </p>
+        </section>
+    
+        <section class="goals" data-aos="fade-up" data-aos-delay="300">
+          <h2>Our Goals</h2>
+          <ul>
+            <li>Promote innovations in wellness and lifestyle technology.</li>
+            <li>Provide resources for a sustainable, tech-friendly lifestyle.</li>
+            <li>Foster a community of like-minded individuals passionate about technology in everyday life.</li>
+          </ul>
+        </section>
+    
+        <section class="team" data-aos="fade-up" data-aos-delay="400">
+          <h2>Meet Our Team</h2>
+          <p>
+            Our team consists of tech enthusiasts, lifestyle experts, and creatives dedicated to bringing you the latest in tech-driven lifestyle trends. Together, we work to curate content, reviews, and resources that inspire and inform.
+          </p>
+        </section>
+      </main>
+
+    
+      <header>
+        <section id="contact-section">
+
+        <h1>Contact</h1>
+        
+        <form action="" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+      
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+      
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </header>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <a href="https://facebook.com" target="_blank">Facebook</a> |
+        <a href="https://twitter.com" target="_blank">Twitter</a> |
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Lifestyle Hub. All Rights Reserved.</p>
+      </div>
+    </footer>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script>
+
+// JavaScript untuk menambahkan kelas saat halaman di-scroll
+window.addEventListener("scroll", function() {
+  const elements = document.querySelectorAll(".hover-effect");
+  if (window.scrollY > 100) { // atur nilai sesuai keinginan
+    elements.forEach(element => element.classList.add("scrolled"));
+  } else {
+    elements.forEach(element => element.classList.remove("scrolled"));
+  }
+});
+
+
+      
+
+
+      const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        effect: 'fade', // You can change this to 'fade', 'cube', 'coverflow', etc.
+      });
+
+
+
+
+
+      // Initialize Isotope layout
+      var elem = document.querySelector('.isotope-container');
+      var iso = new Isotope(elem, {
+        itemSelector: '.portfolio-item',
+        layoutMode: 'fitRows',
+      });
+
+      // Filter items on button click
+      var filtersElem = document.querySelector('.portfolio-filters');
+      filtersElem.addEventListener('click', function (event) {
+        if (!matchesSelector(event.target, 'li')) {
+          return;
+        }
+        var filterValue = event.target.getAttribute('data-filter');
+        iso.arrange({ filter: filterValue });
+        filtersElem.querySelector('.filter-active').classList.remove('filter-active');
+        event.target.classList.add('filter-active');
+      });
+        
+      // Get the theme toggle button element
+      const toggleButton = document.getElementById('theme-toggle');
+
+      // Check if the user has a previously saved theme preference in localStorage
+      const currentTheme = localStorage.getItem('theme');
+
+      // Apply the saved theme when the page loads
+      if (currentTheme) {
+        document.body.classList.add(currentTheme);
+        if (currentTheme === 'dark-theme') {
+          toggleButton.textContent = '☀️ Light Mode';
+        }
+      }
+
+      // Event listener to toggle the theme on click
+      toggleButton.addEventListener('click', function () {
+        if (document.body.classList.contains('dark-theme')) {
+          // Deactivate dark theme (go back to light theme)
+          document.body.classList.remove('dark-theme');
+          toggleButton.textContent = '🌙 Dark Mode';
+          // Save the light theme preference to localStorage
+          localStorage.setItem('theme', 'light-theme');
+        } else {
+          // Activate dark theme
+          document.body.classList.add('dark-theme');
+          toggleButton.textContent = '☀️ Light Mode';
+          // Save the dark theme preference to localStorage
+          localStorage.setItem('theme', 'dark-theme');
+        }
+      });
+    </script>
+  </body>
+</html>
